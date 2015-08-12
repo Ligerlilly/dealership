@@ -16,4 +16,8 @@ class Dealership
     @@dealerships
   end
 
+  def self.clear
+    @@dealerships = []
+  end
+
 end

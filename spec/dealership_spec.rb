@@ -30,4 +30,11 @@ describe Dealership do
       expect(Dealership.all).to eq [@test_dealership]
     end
   end
+
+  describe '.clear' do
+    it 'empties out all the saved dealerships' do
+      Dealership.clear
+      expect(Dealership.all).to eq []
+    end
+  end
 end
