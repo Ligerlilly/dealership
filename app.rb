@@ -39,5 +39,14 @@ end
 post '/vehicles' do
   @dealership = Dealership.find(params['dealership_id'].to_i)
   @dealership.add_vehicle(Vehicle.new(params['make'], params['model'], params['year']))
+  @dealership.cars.each do |car|
+    car.save
+  end
+
   erb :dealership
+end
+
+get '/vehicles/:id' do
+  @car = Vehicle.find(params['id'].to_i)
+  erb :vehicle
 end

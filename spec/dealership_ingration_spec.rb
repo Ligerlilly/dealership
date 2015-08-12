@@ -34,8 +34,8 @@ describe 'individual dealership', { type: :feature } do
     fill_in 'year', with: "2000"
     click_button 'Add Vehicle'
     expect(page).to have_content "Toyota Prius 2000"
-
-
+    click_link "Toyota Prius 2000"
+    expect(page).to have_content "Car"
 
   end
 end
