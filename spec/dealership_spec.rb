@@ -4,6 +4,7 @@ require './vehicle/lib/vehicle'
 
 describe Dealership do
   before do
+    Dealership.clear
     @test_dealership = Dealership.new("Bob's Used Cars")
   end
 

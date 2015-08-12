@@ -14,3 +14,30 @@ end
 get '/dealerships/new' do
   erb :dealerships_form
 end
+
+post '/dealerships' do
+  dealership = Dealership.new(params['dealership'])
+  dealership.save
+  erb :dealerships
+end
+
+get '/clear' do
+  Dealership.clear
+  erb :dealerships
+end
+
+get '/dealerships/:id' do
+  @dealership = Dealership.find(params['id'].to_i)
+  erb :dealership
+end
+
+get '/dealerships/:id/vehicles/new' do
+  @dealership = Dealership.find(params['id'].to_i)
+  erb :dealership_vehicles_form
+end
+
+post '/vehicles' do
+  @dealership = Dealership.find(params['dealership_id'].to_i)
+  @dealership.add_vehicle(Vehicle.new(params['make'], params['model'], params['year']))
+  erb :dealership
+end
