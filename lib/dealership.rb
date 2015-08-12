@@ -30,5 +30,9 @@ class Dealership
     found_dealership
   end
 
+  def add_vehicle(vehicle)
+    @cars.push(vehicle)
+  end
+
 
 end
